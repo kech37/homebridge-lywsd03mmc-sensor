@@ -1,0 +1,6 @@
+{
+  "name": "Bedroom Mi Sensor",
+  "address": "A4:C1:38:70:2A:60",
+  "bindKey": "f77a6861b2e1c2fda31ba9b8b5087193",
+  "scanTimeout": 10
+}

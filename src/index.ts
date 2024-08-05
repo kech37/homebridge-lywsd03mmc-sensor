@@ -1,11 +1,11 @@
-import { API } from 'homebridge';
+import { API } from "homebridge";
 
-import { PLATFORM_NAME } from './settings.js';
-import { ExampleHomebridgePlatform } from './platform.js';
+import { MiLYWSD03MMCSensorPlatform } from "./platform.js";
+import { PLATFORM_NAME } from "./settings.js";
 
 /**
  * This method registers the platform with Homebridge
  */
 export default (api: API) => {
-  api.registerPlatform(PLATFORM_NAME, ExampleHomebridgePlatform);
+  api.registerPlatform(PLATFORM_NAME, MiLYWSD03MMCSensorPlatform);
 };

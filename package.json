@@ -1,17 +1,17 @@
 {
   "private": true,
-  "displayName": "Plugin Name",
-  "name": "homebridge-plugin-name",
-  "version": "1.0.0",
-  "description": "A short description about what your plugin does.",
+  "displayName": "Homebridge Mi LYWSD03MMC Sensor",
+  "name": "homebridge-mi-lywsd03mmc-sensor",
+  "version": "0.0.1",
+  "description": "This is a plugin for the Xiaomi Mi Temperature and Humidity Sensor (LYWSD03MMC).",
   "license": "Apache-2.0",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+    "url": "git+https://github.com/kech37/Homebridge-LYWSD03MMC-Sensor.git"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+    "url": "https://github.com/kech37/Homebridge-LYWSD03MMC-Sensor/issues"
   },
   "engines": {
     "node": "^18.20.4 || ^20.16.0 || ^22.5.1",
@@ -37,5 +37,8 @@
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "homebridge-mi-lywsd03mmc-sensor": "file:"
   }
 }
