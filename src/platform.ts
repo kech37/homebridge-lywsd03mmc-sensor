@@ -8,7 +8,8 @@ import {
   Service,
 } from "homebridge";
 
-import { MiLYWSD03MMCSensorAccessory } from "./platformAccessory.js";
+import { HumiditySensorAccessory } from "./accessories/humiditySensorAccessory.js";
+import { TemperatureSensorAccessory } from "./accessories/temperatureSensorAccessory.js";
 import { PLATFORM_NAME, PLUGIN_NAME } from "./settings.js";
 
 /**
@@ -97,7 +98,8 @@ export class MiLYWSD03MMCSensorPlatform implements DynamicPlatformPlugin {
 
         // create the accessory handler for the restored accessory
         // this is imported from `platformAccessory.ts`
-        new MiLYWSD03MMCSensorAccessory(this, existingAccessory);
+        new TemperatureSensorAccessory(this, existingAccessory);
+        new HumiditySensorAccessory(this, existingAccessory);
 
         // it is possible to remove platform accessories at any time using `api.unregisterPlatformAccessories`, e.g.:
         // remove platform accessories when no longer present
@@ -113,13 +115,19 @@ export class MiLYWSD03MMCSensorPlatform implements DynamicPlatformPlugin {
           uuid
         );
 
+        accessory
+          .getService(this.Service.AccessoryInformation)
+          ?.setCharacteristic(this.Characteristic.Manufacturer, "Xiaomi")
+          .setCharacteristic(this.Characteristic.Model, "LYWSD03MMC");
+
         // store a copy of the device object in the `accessory.context`
         // the `context` property can be used to store any data about the accessory you may need
         accessory.context.device = device;
 
         // create the accessory handler for the newly create accessory
         // this is imported from `platformAccessory.ts`
-        new MiLYWSD03MMCSensorAccessory(this, accessory);
+        new TemperatureSensorAccessory(this, accessory);
+        new HumiditySensorAccessory(this, accessory);
 
         // link the accessory to your platform
         this.api.registerPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [
