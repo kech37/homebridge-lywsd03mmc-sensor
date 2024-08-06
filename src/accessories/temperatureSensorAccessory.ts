@@ -1,6 +1,5 @@
-import { PlatformAccessory } from "homebridge";
-
-import { MiLYWSD03MMCSensorPlatform } from "../platform.js";
+import { MiLYWSD03MMCSensorPlatform } from '../platform.js';
+import { PlatformAccessory } from 'homebridge';
 
 /**
  * Platform Accessory
@@ -10,21 +9,21 @@ import { MiLYWSD03MMCSensorPlatform } from "../platform.js";
 export class TemperatureSensorAccessory {
   constructor(
     private readonly platform: MiLYWSD03MMCSensorPlatform,
-    private readonly accessory: PlatformAccessory
+    private readonly accessory: PlatformAccessory,
   ) {
     const temperatureService =
-      this.accessory.getService("Temperature") ||
+      this.accessory.getService('Temperature') ||
       this.accessory
-        .addService(this.platform.Service.TemperatureSensor, "Temperature")
+        .addService(this.platform.Service.TemperatureSensor, 'Temperature')
         .setCharacteristic(this.platform.Characteristic.CurrentTemperature, 0);
 
     setInterval(() => {
       const randomTemp = Math.round(1 + Math.random() * 36);
       temperatureService.updateCharacteristic(
         this.platform.Characteristic.CurrentTemperature,
-        randomTemp
+        randomTemp,
       );
-      this.platform.log.debug("Triggering Temperature Updated:", randomTemp);
+      this.platform.log.debug('Triggering Temperature Updated:', randomTemp);
     }, 3 * 1000);
   }
 }

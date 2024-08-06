@@ -1,6 +1,5 @@
-import { PlatformAccessory } from "homebridge";
-
-import { MiLYWSD03MMCSensorPlatform } from "../platform.js";
+import { MiLYWSD03MMCSensorPlatform } from '../platform.js';
+import { PlatformAccessory } from 'homebridge';
 
 /**
  * Platform Accessory
@@ -10,26 +9,26 @@ import { MiLYWSD03MMCSensorPlatform } from "../platform.js";
 export class HumiditySensorAccessory {
   constructor(
     private readonly platform: MiLYWSD03MMCSensorPlatform,
-    private readonly accessory: PlatformAccessory
+    private readonly accessory: PlatformAccessory,
   ) {
     const humidityService =
-      this.accessory.getService("Humidity") ||
+      this.accessory.getService('Humidity') ||
       this.accessory
-        .addService(this.platform.Service.HumiditySensor, "Humidity")
+        .addService(this.platform.Service.HumiditySensor, 'Humidity')
         .setCharacteristic(
           this.platform.Characteristic.CurrentRelativeHumidity,
-          0
+          0,
         );
 
     setInterval(() => {
       const randomHumi = Math.round(1 + Math.random() * 100);
       humidityService.updateCharacteristic(
         this.platform.Characteristic.CurrentRelativeHumidity,
-        randomHumi
+        randomHumi,
       );
       this.platform.log.debug(
-        "Triggering Relative Humidity Updated:",
-        randomHumi
+        'Triggering Relative Humidity Updated:',
+        randomHumi,
       );
     }, 3 * 1000);
   }
