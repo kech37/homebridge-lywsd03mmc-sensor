@@ -9,6 +9,7 @@ import {
 } from 'homebridge';
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings.js';
 
+import { BluetoothService } from './services/bluetooth.js';
 import { HumiditySensorAccessory } from './accessories/humiditySensorAccessory.js';
 import { TemperatureSensorAccessory } from './accessories/temperatureSensorAccessory.js';
 
@@ -62,6 +63,8 @@ export class MiLYWSD03MMCSensorPlatform implements DynamicPlatformPlugin {
    * must not be registered again to prevent "duplicate UUID" errors.
    */
   discoverDevices() {
+    new BluetoothService(this.log, this.config.address);
+
     // EXAMPLE ONLY
     // A real plugin you would discover accessories from the local network, cloud services
     // or a user-defined array in the platform config.

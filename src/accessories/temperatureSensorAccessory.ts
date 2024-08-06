@@ -18,12 +18,12 @@ export class TemperatureSensorAccessory {
         .setCharacteristic(this.platform.Characteristic.CurrentTemperature, 0);
 
     setInterval(() => {
-      const randomTemp = Math.round(1 + Math.random() * 36);
+      const randomTemp = Math.round(Math.random() * 36);
       temperatureService.updateCharacteristic(
         this.platform.Characteristic.CurrentTemperature,
         randomTemp,
       );
-      this.platform.log.debug('Triggering Temperature Updated:', randomTemp);
+      // this.platform.log.debug('Triggering Temperature Updated:', randomTemp);
     }, 3 * 1000);
   }
 }

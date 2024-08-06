@@ -21,15 +21,12 @@ export class HumiditySensorAccessory {
         );
 
     setInterval(() => {
-      const randomHumi = Math.round(1 + Math.random() * 100);
+      const randomHumi = Math.round(Math.random() * 100);
       humidityService.updateCharacteristic(
         this.platform.Characteristic.CurrentRelativeHumidity,
         randomHumi,
       );
-      this.platform.log.debug(
-        'Triggering Relative Humidity Updated:',
-        randomHumi,
-      );
+      // this.platform.log.debug('Triggering Relative Humidity Updated:', randomHumi,);
     }, 3 * 1000);
   }
 }

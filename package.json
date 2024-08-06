@@ -32,13 +32,13 @@
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
     "eslint": "^8.57.0",
-    "homebridge": "^2.0.0-beta.0",
+    "homebridge": "^1.8.0",
     "nodemon": "^3.1.4",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "homebridge-mi-lywsd03mmc-sensor": "file:"
+    "@abandonware/noble": "^1.9.2-25"
   }
 }

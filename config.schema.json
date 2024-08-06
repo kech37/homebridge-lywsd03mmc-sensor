@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "Homebridge LYWSD03MMC Sensor",
+  "pluginAlias": "HomebridgeMiLYWSD03MMCSensor",
   "pluginType": "platform",
   "singular": true,
   "headerDisplay": "Sensors have to be flashed before adding to remove the encryption. I recommend using this [flashing tool](https://pvvx.github.io/ATC_MiThermometer/TelinkMiFlasher.html) (This is not made by or supported by me).\n\nGet the MAC Address from the flashing tool, or by using `bluetoothctl scan le` from the terminal",
